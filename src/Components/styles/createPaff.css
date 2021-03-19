@@ -1,0 +1,13 @@
+.create__paff{
+  display:flex;
+  width:300px;
+  margin:0 auto;
+  justify-content: space-between;
+}
+.create__paff textarea{
+  padding:10px;
+  resize:none;
+}
+.create__paff button{
+  padding: 10px;
+}

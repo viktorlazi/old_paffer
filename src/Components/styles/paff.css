@@ -1,0 +1,26 @@
+.paff__post{
+  display:flex;
+  width:100%;
+  align-items: center;
+  flex-direction: column;
+  padding:5px 15px;
+  border-left: 1px solid gray;
+}
+.paff__post div{
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  width:100%;
+}
+.paff__post__content{
+
+}
+.paff__post__author{
+
+}
+.paff__post__tip__amount{
+
+}
+.paff__post__tip__button{
+
+}

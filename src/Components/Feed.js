@@ -1,10 +1,14 @@
 import React from 'react'
+import Paff from './Paff'
+import './styles/feed.css'
 
 function Feed() {
   return (
-    <div>
-      
-    </div>
+    <ul id="feed">
+      <Paff />
+      <Paff />
+      <Paff />
+    </ul>
   )
 }
 
