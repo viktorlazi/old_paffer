@@ -1,4 +1,4 @@
-#feed{
+.feed{
   display:flex;
   flex-direction: column;
   align-content: center;

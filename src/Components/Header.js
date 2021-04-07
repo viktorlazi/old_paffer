@@ -1,7 +1,8 @@
 import React from 'react'
 import './styles/header.css'
+import Identicon from 'identicon.js';
 
-function Header() {
+function Header({account}) {
   return (
     <header>
       <div className="logo">
@@ -11,8 +12,13 @@ function Header() {
         <input type="text" placeholder="search people"/>
       </div>
       <div className="profileData">
-        <img src="" alt="profile image" />
-        <p>Profile name</p>
+        <img
+          width='30'
+          height='30'
+          src={`data:image/png;base64,${new Identicon(account).toString()}`}
+        />
+        
+        <small style={{fontSize:'10px'}}>{account}</small>
       </div>
     </header>
   )

@@ -44,13 +44,13 @@ function App() {
 
   useEffect(() => {
     load()
-  }, [])
+  }, [account])
   
   return (
     loading ? 
-    <p>loading</p> :
+    <p>please run ganache</p> :
     <div className="App">
-      <Header />
+      <Header account={account} />
       <Home />
     </div>
   );
