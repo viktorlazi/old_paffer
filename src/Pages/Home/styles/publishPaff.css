@@ -1,0 +1,28 @@
+.publish-post{
+  margin: 0 auto 80px auto;
+  width: 400px;
+}
+.publish-post{
+  padding-top: 30px;
+  display:flex;
+  justify-content: space-between;
+}
+.publish-post input{
+  font-size:18px;
+  padding: 5px;
+  border: none !important;
+  outline: none !important;
+  background: none !important;
+}
+.publish-post button{
+  font-size: 18px;
+  padding: 15px;
+  border-radius: 20%;
+  border: none !important;
+  outline: none !important;
+  background-color: var(--color-3);
+  color: white;
+  text-transform: uppercase;
+  font-weight: 800;
+  cursor: pointer;
+}

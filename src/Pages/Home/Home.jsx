@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from './components/Navbar'
 import Feed from './components/Feed'
+import PublishPaff from './components/PublishPaff'
 import './styles/home.css'
 
 function Home() {
@@ -17,6 +18,7 @@ function Home() {
     <div className="home">
       <Navbar />
       <section>
+        <PublishPaff />
         <Feed> 
           {posts}
         </Feed>
