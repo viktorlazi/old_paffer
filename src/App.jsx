@@ -2,14 +2,14 @@ import './App.css';
 import Paffer from './abis/Paffer.json'
 import {useEffect, useState} from 'react'
 import Web3 from 'web3'
-import {Route, Link, BrowserRouter as Router} from 'react-router-dom'
+import {Route, BrowserRouter as Router} from 'react-router-dom'
 import Home from './Pages/Home/Home'
 import Profile from './Pages/Profile/Profile'
+import BlockchainData from './Stores/BlockchainData'
+import {observer} from 'mobx-react'
 
-function App() {  
+function App(){  
   const [paffer, setPaffer] = useState(null)
-  const [loading, setLoading]= useState(true)
-  const [account, setAccount]= useState()
 
   const loadWeb3 = async () =>{
     if(window.ethereum){
@@ -24,14 +24,23 @@ function App() {
   const loadBlockchainData = async () =>{
     const web3 = window.web3
     const accounts = await web3.eth.getAccounts()
-    setAccount(accounts[0])
+    //setAccount(accounts[0])
 
     const networkId = await web3.eth.net.getId()
     const networkData = Paffer.networks[networkId]
     if(networkData){
       const paffer = new web3.eth.Contract(Paffer.abi, networkData.address)
-      setPaffer(paffer)
-      setLoading(false)
+      BlockchainData.contract = paffer
+      console.log(await paffer.methods.paffCount().call())
+      
+      paffer.methods
+      .uploadPaff('abc', 'aloo')
+      .send({ from: '0xf57466889b1551215a08D72E85876b9BB27354ED' })
+      .on('transactionHash', (hash)=>{
+
+      })   
+      //uploadPaff(string memory _paffHash, string memory _content)
+      console.log(await paffer.methods.paffCount().call())
     }else{
       window.alert('paffer not deployed to network')
     }
@@ -42,20 +51,18 @@ function App() {
   }
   useEffect(() => {
     load()
-    setLoading(false)
-    setAccount('123456789123456')
   }, [])
   
   return (
-    loading ? 
-    <p>please run ganache testnet</p> :
     <div className="App">
-      <Router>
-        <Route exact path="/" component={Home} />
-        <Route path="/profile" component={Profile} />
-      </Router>
+    {BlockchainData.contract !== undefined ? 
+    <p>loading</p> :
+    <Router>
+      <Route exact path="/" component={Home} />
+      <Route path="/profile" component={Profile} />
+    </Router>}
     </div>
   );
 }
 
-export default App;
+export default observer(App)

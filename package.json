@@ -9,6 +9,8 @@
     "chai": "^4.3.4",
     "chai-as-promised": "^7.1.1",
     "identicon.js": "^2.3.3",
+    "mobx": "^6.2.0",
+    "mobx-react": "^7.1.0",
     "mocha": "^8.3.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

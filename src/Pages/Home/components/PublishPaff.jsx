@@ -3,7 +3,7 @@ import '../styles/publishPaff.css'
 
 function PublishPaff() {
   return (
-    <div class="publish-post">
+    <div className="publish-post">
       <input type="text" placeholder="Create a Paff"/>
       <button>publish</button>
 
