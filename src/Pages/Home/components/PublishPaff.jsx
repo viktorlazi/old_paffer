@@ -7,7 +7,7 @@ function PublishPaff() {
   const uploadPaff = async () =>{
     if(validateContent(content)){
       BlockchainData.contract.methods
-      .uploadPaff('abc', content)
+      .uploadPaff('asdsadasd', content, '20.4.2021.')
       .send({ from: BlockchainData.account })
       .on('transactionHash', (hash)=>{
         //success

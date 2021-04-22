@@ -43,7 +43,7 @@ function App(){
   
   return (
     <div className="App">
-    {BlockchainData.contract !== undefined ? 
+    {BlockchainData.contract !== undefined && BlockchainData.account !== undefined ? 
     <p>loading</p> :
     <Router>
       <Route exact path="/" component={Home} />

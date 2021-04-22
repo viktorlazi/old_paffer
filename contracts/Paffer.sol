@@ -9,6 +9,7 @@ contract Paffer{
     string hash;
     string content;
     uint tipAmount;
+    string date;
     address payable author;
   }
   mapping (uint => Paff) public paffs;
@@ -18,6 +19,7 @@ contract Paffer{
     string hash,
     string content,
     uint tipAmount,
+    string date,  
     address payable author
   );
   event PaffTipped(
@@ -28,14 +30,14 @@ contract Paffer{
     address payable author
   );
 
-  function uploadPaff(string memory _paffHash, string memory _content) public{
+  function uploadPaff(string memory _paffHash, string memory _content, string memory _date) public{
     require(bytes(_content).length > 0);
     require(bytes(_paffHash).length > 0);
     require(msg.sender != address(0x0));
 
     paffCount++;
-    paffs[paffCount] = Paff(paffCount, _paffHash, _content, 0, msg.sender);
-    emit PaffCreated(paffCount, _paffHash, _content, 0, msg.sender);
+    paffs[paffCount] = Paff(paffCount, _paffHash, _content, 0, _date, msg.sender);
+    emit PaffCreated(paffCount, _paffHash, _content, 0, _date, msg.sender);
   }
 
   function tipPaffOwner(uint _id) public payable{
