@@ -1,6 +1,4 @@
 import './App.css';
-import Home from './Pages/Home/Home'
-import Header from './Components/Header'
 import Paffer from './abis/Paffer.json'
 import {useEffect, useState} from 'react'
 import Web3 from 'web3'
@@ -34,24 +32,22 @@ function App() {
     }else{
       window.alert('paffer not deployed to network')
     }
-  }
-  
+  }  
   const load = async () =>{
     await loadWeb3()
     await loadBlockchainData()
   }
-
-
   useEffect(() => {
     load()
-  }, [account])
+    setLoading(false)
+    setAccount('123456789123456')
+  }, [])
   
   return (
     loading ? 
     <p>please run ganache</p> :
     <div className="App">
-      <Header account={account} />
-      <Home />
+      <h1>alo</h1>
     </div>
   );
 }
