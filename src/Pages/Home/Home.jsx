@@ -9,10 +9,10 @@ function Home({contract, account}) {
   useEffect(async()=>{
     const paffCount=await contract.methods.paffCount().call()
     setPaffs([])
-    for(let i = 0; i <=  paffCount; i++){
+    for(let i = 1; i <=  paffCount; i++){
       const paff = await contract.methods.paffs(i).call()
       setPaffs(paffs=>[...paffs, paff])
-    }  
+    }
   }, [])
   return (
     <div className="home">

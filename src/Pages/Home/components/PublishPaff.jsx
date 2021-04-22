@@ -6,7 +6,7 @@ function PublishPaff({methods, account}) {
   const uploadPaff = async () =>{
     if(validateContent(content)){
       methods
-      .uploadPaff('asdsadasd', content, '20.4.2021.')
+      .uploadPaff('asdsadasd', content, getDateString())
       .send({ from: account })
       .on('transactionHash', (hash)=>{
         //success
@@ -21,6 +21,14 @@ function PublishPaff({methods, account}) {
       return false
     }
     return true
+  }
+  const getDateString = () =>{
+    const date = new Date()
+    const day = date.getDate()
+    const month = date.getMonth()+1
+    const year = date.getFullYear()
+    const fullDate = day+'.'+month+'.'+year+'.'
+    return fullDate
   }
   return (
     <div className="publish-post">
