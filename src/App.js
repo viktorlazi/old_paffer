@@ -2,6 +2,9 @@ import './App.css';
 import Paffer from './abis/Paffer.json'
 import {useEffect, useState} from 'react'
 import Web3 from 'web3'
+import {Route, Link, BrowserRouter as Router} from 'react-router-dom'
+import Home from './Pages/Home/Home'
+import Profile from './Pages/Profile/Profile'
 
 function App() {  
   const [paffer, setPaffer] = useState(null)
@@ -45,9 +48,12 @@ function App() {
   
   return (
     loading ? 
-    <p>please run ganache</p> :
+    <p>please run ganache testnet</p> :
     <div className="App">
-      <h1>alo</h1>
+      <Router>
+        <Route exact path="/" component={Home} />
+        <Route path="/profile" component={Profile} />
+      </Router>
     </div>
   );
 }
