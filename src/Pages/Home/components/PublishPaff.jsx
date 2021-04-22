@@ -1,20 +1,22 @@
 import React, {useState} from 'react'
 import '../styles/publishPaff.css'
-import BlockchainData from '../../../Stores/BlockchainData'
 
-function PublishPaff() {
+function PublishPaff({methods, account}) {
   const [content, setContent] = useState()
   const uploadPaff = async () =>{
     if(validateContent(content)){
-      BlockchainData.contract.methods
+      methods
       .uploadPaff('asdsadasd', content, '20.4.2021.')
-      .send({ from: BlockchainData.account })
+      .send({ from: account })
       .on('transactionHash', (hash)=>{
         //success
       })  
     }
   }
   const validateContent = (ctnt) =>{
+    if(!ctnt){
+      return false
+    }
     if(ctnt.length>150 || ctnt.length <1){
       return false
     }
