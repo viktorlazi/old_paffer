@@ -29,7 +29,7 @@ function App(){
     if(networkData){
       const paffer = new web3.eth.Contract(Paffer.abi, networkData.address)
       setContract(paffer)
-      
+      console.log(paffer.methods)      
     }else{
       window.alert('paffer not deployed to network')
     }
@@ -44,7 +44,7 @@ function App(){
   
   return (
     <div className="App">
-    {contract &&
+    {contract && account &&
       <Home contract={contract} account={account} />}
     </div>
   );

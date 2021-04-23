@@ -6,12 +6,13 @@ function PublishPaff({methods, account}) {
   const uploadPaff = async () =>{
     if(validateContent(content)){
       methods
-      .uploadPaff('asdsadasd', content, getDateString())
+      .uploadPaff('asdsadasd', content)
       .send({ from: account })
       .on('transactionHash', (hash)=>{
-        //success
+        console.log(hash)
       })  
     }
+    setContent('')
   }
   const validateContent = (ctnt) =>{
     if(!ctnt){
@@ -22,17 +23,9 @@ function PublishPaff({methods, account}) {
     }
     return true
   }
-  const getDateString = () =>{
-    const date = new Date()
-    const day = date.getDate()
-    const month = date.getMonth()+1
-    const year = date.getFullYear()
-    const fullDate = day+'.'+month+'.'+year+'.'
-    return fullDate
-  }
   return (
     <div className="publish-post">
-      <input defaultValue='' onChange={(e)=>{setContent(e.target.value)}} type="text" placeholder="Create a Paff"/>
+      <input value={content} onChange={(e)=>{setContent(e.target.value)}} type="text" placeholder="Create a Paff"/>
       <button onClick={uploadPaff}>publish</button>
     </div>
   )
