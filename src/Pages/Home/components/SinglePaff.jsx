@@ -16,7 +16,7 @@ function SinglePaff({props}) {
       <div>
         <p className="content">{props.content}</p>
         <div className="post-info">
-          <a>{props.author}</a>
+          <a>{props.author.substring(0,8)}</a>
           <a className="paff-amount">{props.tipAmount}PAffs</a>
           <label className="date">on {getDateString(props.date)}</label>
         </div>

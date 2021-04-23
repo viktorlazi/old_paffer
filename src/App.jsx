@@ -44,8 +44,15 @@ function App(){
   
   return (
     <div className="App">
-    {contract && account &&
-      <Home contract={contract} account={account} />}
+      {contract && account &&
+      <Router>
+        <Route exact path="/" >
+          <Home contract={contract} account={account} />
+        </Route>
+        <Route exact path="/profile" >
+          <Profile />
+        </Route>
+      </Router>}
     </div>
   );
 }
