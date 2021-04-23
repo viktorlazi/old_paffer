@@ -16,7 +16,7 @@ function Home({contract, account}) {
   }, [])
   return (
     <div className="home">
-      <Navbar />
+      <Navbar methods={contract.methods} />
       <section>
         <PublishPaff methods={contract.methods} account={account} />
         <Feed> 
