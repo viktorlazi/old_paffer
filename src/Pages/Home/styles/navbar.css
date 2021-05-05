@@ -10,14 +10,17 @@ nav{
   align-items: center;
   align-content: flex-start;
 }
-nav .profile-icon img {
-  border-radius: 50px;
-  padding: 5px;
-  width: 90px;
+nav .profile-icon canvas{
+  border-radius: 50%;
+  aspect-ratio: 1;
+  width: 70px !important;
+  height: 70px !important;
+  cursor: pointer;
 }
 nav .profile-icon h3{
   margin: 0;
   padding: 5px;
+  overflow: hidden;
 }
 nav .search-bar{
   display:flex;

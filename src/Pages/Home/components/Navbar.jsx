@@ -1,8 +1,9 @@
 import React,{useState, useEffect} from 'react'
-import front from './front.jpg'
+import Identicon from 'react-identicons'
 import '../styles/navbar.css'
+import {Link} from 'react-router-dom'
 
-function Navbar({methods}) {
+function Navbar({methods, account}) {
   const [input, setInput]=useState('')
   /*
   BLOCK EXPLORER
@@ -25,8 +26,8 @@ function Navbar({methods}) {
   return (
     <nav>
       <div className="profile-icon">
-        <img src={front}/>
-        <a href="./profile"><h3>viktorlazi</h3></a>
+      <Identicon string={account} />
+        <Link to={`./profile/${account}`}><h3>{account.substring(0, 12)}</h3></Link>
       </div>
       <div className="search-bar">
         <input value={input} onChange={(e)=>{setInput(e.target.value)}} type="text" placeholder="search people..." />
