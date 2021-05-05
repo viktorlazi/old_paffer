@@ -49,8 +49,8 @@ function App(){
         <Route exact path="/" >
           <Home contract={contract} account={account} />
         </Route>
-        <Route exact path="/profile" >
-          <Profile />
+        <Route path="/profile/:address" >
+          <Profile contract={contract} account={account} />
         </Route>
       </Router>}
     </div>
