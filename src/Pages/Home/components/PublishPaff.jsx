@@ -26,7 +26,7 @@ function PublishPaff({methods, account}) {
   return (
     <div className="publish-post">
       <input value={content} onChange={(e)=>{setContent(e.target.value)}} type="text" placeholder="Create a Paff"/>
-      <button onClick={uploadPaff}>publish</button>
+      <button>publish</button>
     </div>
   )
 }

@@ -1,27 +1,9 @@
-import React,{useState, useEffect} from 'react'
-import front from './front.jpg'
-import '../styles/navbar.css'
+import front from './front.jpg';
+import '../styles/navbar.css';
+import {useState} from 'react';
 
-function Navbar({methods}) {
+function Navbar() {
   const [input, setInput]=useState('')
-  /*
-  BLOCK EXPLORER
-  const getResults = async () =>{
-    console.log(input)
-    const paffCount = await methods.paffCount().call()
-    let paffs = []
-    for(let i = 1; i<=paffCount; i++){
-      paffs.push(await methods.paffs(i).call())
-    }
-    console.log(paffs.filter((e)=>{
-      return e.author.includes(input) 
-      || e.content.includes(input)
-    }))
-  }
-  useEffect(()=>{
-    getResults()
-  },[input])
-  */
   return (
     <nav>
       <div className="profile-icon">

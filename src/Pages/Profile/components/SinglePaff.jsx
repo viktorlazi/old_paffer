@@ -1,5 +1,6 @@
 import React from 'react'
 import Identicon from 'react-identicons'
+import {Link} from 'react-router-dom'
 
 function SinglePaff({props}) {  
   const getDateString = (timestamp) =>{
@@ -12,7 +13,9 @@ function SinglePaff({props}) {
   }
   return (
     <div className="feed-post">
-      <Identicon string={props.author} />
+      <Link to={`./profile/${props.account}`}>
+        <Identicon string={props.author} />
+      </Link>
       <div>
         <p className="content">{props.content}</p>
         <div className="post-info">
